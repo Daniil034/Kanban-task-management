@@ -1,0 +1,17 @@
+@import "./_variables.scss";
+
+.index-route {
+  padding: calc($header-height + 50px) 16px;
+  flex: 1 1 auto;
+  background-color: $light-grey;
+
+  @include tablet {
+    padding: calc($header-hight-tablet + 80px) 50px;
+  }
+
+  &__info {
+    @include heading-l;
+    color: $medium-grey;
+    text-align: center;
+  }
+}

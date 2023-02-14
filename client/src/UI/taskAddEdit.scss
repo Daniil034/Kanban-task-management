@@ -1,0 +1,92 @@
+@import "./_variables.scss";
+
+.task-edit-modal {
+  @include container-rounded-white;
+  @include container-rounded-white-flex;
+  transition: all 0.3s ease;
+
+  &__header {
+    @include heading-l;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__title-header {
+    @include heading-s;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__description-header {
+    @include heading-s;
+  }
+
+  &__description-input {
+    resize: none;
+    overflow: hidden;
+  }
+
+  &__subtasks {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__subtasks-title {
+    @include heading-s;
+    margin-bottom: 8px;
+  }
+
+  &__subtasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  &__subtasks-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+  }
+
+  &__subtasks-input {
+    flex-grow: 1;
+  }
+
+  &__subtasks-delete {
+    display: flex;
+  }
+
+  &__add-subtask {
+    @include button-secondary;
+    padding: 8px 0;
+
+    &:hover {
+      @include button-secondary-hover;
+    }
+  }
+
+  &__status-title {
+    @include heading-s;
+    margin-bottom: 8px;
+  }
+
+  &__save {
+    @include button-primary-s;
+    padding: 8px 0;
+
+    &:hover,
+    &--pending {
+      @include button-primary-s-hover;
+    }
+  }
+}

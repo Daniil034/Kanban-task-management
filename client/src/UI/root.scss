@@ -1,0 +1,28 @@
+@import "./_variables.scss";
+
+.root {
+  flex: 1 1 auto;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  &__show-sidebar {
+    display: none;
+    padding: 18px 22px 18px 18px;
+    background-color: $main-purple;
+    border-radius: 0px 100px 100px 0px;
+    position: fixed;
+    bottom: 48px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $main-purple-hover;
+    }
+
+    @include tablet {
+      display: block;
+    }
+  }
+}

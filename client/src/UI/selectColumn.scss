@@ -1,0 +1,77 @@
+@import "../index.scss";
+
+.select-column {
+  &__container {
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    line-height: 23px !important;
+  }
+
+  &__control {
+    padding: 0 16px 0 8px !important;
+    cursor: pointer !important;
+    border-color: #e4ebfa !important;
+
+    &--is-focused {
+      border-color: #635fc7 !important;
+      box-shadow: 0 0 0 1px #635fc7 !important;
+    }
+  }
+
+  &__single-value {
+    padding: 2px 0px !important;
+  }
+
+  &__indicator-separator {
+    display: none !important;
+  }
+
+  &__dropdown-indicator {
+    padding: 0 !important;
+    color: #635fc7 !important;
+  }
+
+  &__menu-list {
+    &::-webkit-scrollbar {
+      width: 3px;
+      height: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: rgb(212, 212, 212);
+      border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #9e9d9d;
+      border-radius: 8px;
+    }
+
+    @include desktop {
+      &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+    }
+  }
+
+  &__menu-portal {
+    z-index: 9999 !important;
+  }
+
+  &__option {
+    cursor: pointer !important;
+    font-size: 13px !important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+    &--is-focused {
+      background-color: #e4ebfa !important;
+    }
+
+    &--is-selected {
+      background-color: #635fc7 !important;
+    }
+  }
+}

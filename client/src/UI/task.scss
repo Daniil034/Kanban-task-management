@@ -1,0 +1,115 @@
+@import "./_variables.scss";
+
+.task {
+  @include container-rounded-white;
+  @include container-rounded-white-flex;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__header-title {
+    @include heading-l;
+  }
+
+  &__header-buttons {
+    display: flex;
+    padding: 0 0 0 6px;
+  }
+
+  &__description {
+    @include body-l;
+    color: $medium-grey;
+  }
+
+  &__subtasks-title {
+    @include heading-s;
+    margin-bottom: 16px;
+  }
+
+  &__subtasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  &__subtasks-label {
+    @include body-m;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+    background-color: $light-grey;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  &__subtasks-label:hover {
+    background-color: rgba(99, 95, 199, 0.4);
+  }
+
+  &__subtasks-label--checked {
+    text-decoration: line-through;
+  }
+
+  &__subtasks-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  &__subtasks-input {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    flex-shrink: 0;
+    border: 1px solid $lines-light;
+    border-radius: 2px;
+    background-color: $white;
+  }
+
+  &__subtasks-label input:checked ~ &__subtasks-input {
+    border: none;
+    background-color: $main-purple;
+  }
+
+  &__subtasks-input:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  &__subtasks-label input:checked ~ &__subtasks-input:after {
+    display: block;
+  }
+
+  &__subtasks-label &__subtasks-input:after {
+    left: 4px;
+    top: 4.5px;
+    width: 7.76px;
+    height: 5px;
+    border: solid white;
+    border-width: 0 0 2px 2px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  &__status-title {
+    @include heading-s;
+    margin-bottom: 8px;
+  }
+}

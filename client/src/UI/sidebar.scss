@@ -1,0 +1,237 @@
+@import "./_variables.scss";
+
+.sidebar {
+  position: relative;
+  &__container {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: $white;
+    box-shadow: 0px 10px 20px rgba(54, 78, 126, 0.25);
+    border-radius: 8px;
+    width: 70%;
+    max-height: 70vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+
+    @include tablet {
+      width: 260px;
+      transform: translateX(0);
+      top: 0;
+      left: 0;
+      height: 100%;
+      max-height: 100vh;
+    }
+
+    @include desktop {
+      width: 300px;
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include tablet {
+      display: block;
+      margin: 32px 26px 54px;
+      margin-bottom: 54px;
+    }
+  }
+
+  &__header {
+    @include heading-s;
+    text-transform: uppercase;
+    padding-left: 24px;
+    margin-top: 16px;
+  }
+
+  &__body {
+    width: 100%;
+    overflow-y: auto;
+    padding-right: 18px;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: rgb(212, 212, 212);
+      border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #9e9d9d;
+      border-radius: 8px;
+    }
+
+    @include tablet {
+      padding-bottom: 96px;
+    }
+  }
+
+  &__nav {
+    margin-top: 20px;
+  }
+
+  &__link {
+    @include button-primary-l;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: transparent;
+    color: $medium-grey;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &__link-icon {
+    flex-shrink: 0;
+  }
+
+  &__link-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &__link--active {
+    @extend .sidebar__link;
+    background-color: $main-purple;
+    color: $white;
+
+    .sidebar__link-icon path {
+      fill: $white;
+    }
+  }
+
+  &__link--pending {
+    @extend .sidebar__link;
+    background-color: $main-purple-hover;
+    color: $white;
+  }
+
+  &__new-board {
+    @include heading-m;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 0 15px 24px;
+    color: $main-purple;
+    background-color: transparent;
+
+    &-icon path {
+      fill: $main-purple;
+    }
+  }
+
+  &__hide {
+    display: none;
+
+    @include tablet {
+      display: block;
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      right: 6px;
+      padding: 0px 0px 35px 14px;
+      background-color: $white;
+      -webkit-box-shadow: 0px -35px 31px 0px rgba(255, 255, 255, 0.84);
+      -moz-box-shadow: 0px -35px 31px 0px rgba(255, 255, 255, 0.84);
+      box-shadow: 0px -35px 31px 0px rgba(255, 255, 255, 0.84);
+    }
+  }
+
+  &__hide-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  &__hide-text {
+    @include heading-m;
+    color: $medium-grey;
+  }
+
+  &__overlay {
+    @include overlay;
+    z-index: 998;
+    top: $header-height;
+    @include tablet {
+      background-color: transparent;
+    }
+  }
+}
+
+.sidebar-enter {
+  & .sidebar__container {
+    height: 0;
+
+    @include tablet {
+      height: auto;
+      left: -260px;
+    }
+
+    @include desktop {
+      left: -300px;
+    }
+  }
+  & .sidebar__overlay {
+    opacity: 0;
+  }
+}
+
+.sidebar-enter-active {
+  & .sidebar__container {
+    height: 70vh;
+    transition: height 300ms;
+
+    @include tablet {
+      height: auto;
+      left: 0;
+      transition: left 300ms;
+    }
+  }
+  & .sidebar__overlay {
+    opacity: 1;
+  }
+}
+
+.sidebar-exit {
+  & .sidebar__container {
+    height: 70vh;
+
+    @include tablet {
+      left: 0;
+    }
+  }
+  & .sidebar__overlay {
+    opacity: 1;
+  }
+}
+
+.sidebar-exit-active {
+  & .sidebar__container {
+    height: 0;
+    transition: height 300ms;
+
+    @include tablet {
+      height: auto;
+      left: -260px;
+      transition: left 300ms;
+    }
+
+    @include desktop {
+      left: -300px;
+    }
+  }
+  & .sidebar__overlay {
+    opacity: 0;
+  }
+}

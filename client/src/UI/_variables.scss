@@ -1,0 +1,211 @@
+// ================================== variables ============================================= //
+
+$main-purple: #635fc7;
+$main-purple-hover: #a8a4ff;
+$black: #000112;
+$very-dark-grey: #20212c;
+$dark-grey: #2b2c37;
+$lines-dark: #3e3f4e;
+$lines-light: #e4ebfa;
+$white: #fff;
+$medium-grey: #828fa3;
+$light-grey: #f4f7fd;
+$red: #ea5555;
+$red-hover: #ff9898;
+
+$header-height: 64px;
+$header-hight-tablet: 79px;
+
+$table-width: 768px;
+$desktop-width: 1440px;
+
+// ======================================= mixins ======================================== //
+
+// typography
+@mixin heading-s {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  color: $medium-grey;
+  word-break: break-word;
+}
+
+@mixin heading-m {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 19px;
+  color: $black;
+  word-break: break-word;
+}
+
+@mixin heading-l {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  color: $black;
+  word-break: break-word;
+}
+
+@mixin heading-xl {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  color: $black;
+  word-break: break-word;
+}
+
+@mixin body-m {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  color: $dark-grey;
+  word-break: break-word;
+}
+
+@mixin body-l {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 23px;
+  color: $dark-grey;
+  word-break: break-word;
+}
+
+// buttons
+@mixin button-primary-s {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 23px;
+  color: $white;
+  background-color: $main-purple;
+  border-radius: 20px;
+}
+
+@mixin button-primary-s-hover {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 23px;
+  color: $white;
+  background-color: $main-purple;
+  border-radius: 20px;
+  background-color: $main-purple-hover;
+}
+
+@mixin button-primary-l {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 19px;
+  color: $white;
+  background-color: $main-purple;
+  border-radius: 24px;
+}
+
+@mixin button-primary-l-hover {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 19px;
+  color: $white;
+  background-color: $main-purple;
+  border-radius: 24px;
+  background-color: $main-purple-hover;
+}
+
+@mixin button-secondary {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 23px;
+  color: $main-purple;
+  background-color: rgba(99, 95, 199, 0.1);
+  border-radius: 20px;
+}
+
+@mixin button-secondary-hover {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 23px;
+  color: $main-purple;
+  border-radius: 20px;
+  background-color: rgba(99, 95, 199, 0.25);
+}
+
+@mixin button-destructive {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 23px;
+  color: $white;
+  background-color: $red;
+  border-radius: 20px;
+}
+
+@mixin button-destructive-hover {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 23px;
+  color: $white;
+  border-radius: 20px;
+  background-color: $red-hover;
+}
+
+// containers
+@mixin container-rounded-white {
+  background-color: $white;
+  border-radius: 6px;
+  width: min(92%, 480px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 70vh;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgb(212, 212, 212);
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #9e9d9d;
+    border-radius: 8px;
+  }
+
+  @include desktop {
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+  }
+}
+
+@mixin container-rounded-white-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+}
+
+@mixin overlay {
+  position: fixed;
+  left: 0;
+  right: 0; 
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  
+}
+
+// media
+@mixin tablet {
+  @media (min-width: #{$table-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}

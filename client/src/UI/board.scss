@@ -1,0 +1,88 @@
+@import "./_variables.scss";
+
+.board {
+  background-color: $light-grey;
+  height: 100%;
+  flex: 1 1 auto;
+  display: flex;
+
+  &__container {
+    flex: 1 1 auto;
+    padding: 24px;
+    display: flex;
+    gap: 24px;
+    min-width: min-content;
+  }
+
+  &__add-column {
+    @include heading-xl;
+    color: $medium-grey;
+    background-color: $lines-light;
+    width: 280px;
+    height: 75vh;
+    position: sticky;
+    margin-top: 40px;
+    top: 20px;
+    border-radius: 6px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include tablet {
+      height: 80vh;
+    }
+  }
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__empty-text {
+    @include heading-l;
+    text-align: center;
+    max-width: 80vw;
+    color: $medium-grey;
+  }
+
+  &__add-column-small {
+    @include button-primary-l;
+    padding: 15px 18px;
+  }
+}
+
+.status-column {
+  width: 280px;
+  &__header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  &__header-icon {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  &__header-text {
+    @include heading-s;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+  }
+
+  &__tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}

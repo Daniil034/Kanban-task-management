@@ -1,0 +1,42 @@
+@import "./_variables.scss";
+
+.column-add {
+    @include container-rounded-white;
+    @include container-rounded-white-flex;
+
+    &__header{
+        display: flex;
+        align-items: flex-end;
+    }
+
+    &__header-text {
+        @include heading-l;
+        width: 55%;
+    }
+
+    &__header-error {
+        width: 45%;
+        color: red;
+        font-size: 12px;
+        padding-bottom: 2px;
+    }
+
+    &__name {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__name-text {
+        @include heading-s;
+    }
+
+    &__save {
+        @include button-primary-s;
+        padding: 8px 0;
+
+        &:hover {
+            @include button-primary-s-hover;
+        }
+    }
+}

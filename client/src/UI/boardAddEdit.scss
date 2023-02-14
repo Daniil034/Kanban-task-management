@@ -1,0 +1,68 @@
+@import "./_variables.scss";
+
+.edit-board-modal {
+  @include container-rounded-white;
+
+  &__form {
+    @include container-rounded-white-flex;
+  }
+
+  &__header {
+    @include heading-l;
+  }
+
+  &__name {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &-text {
+      @include heading-s;
+    }
+  }
+
+  &__columns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__columns-text {
+    @include heading-s;
+    margin-bottom: 8px;
+  }
+
+  &__columns-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  &__columns-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__columns-input {
+    flex-grow: 1;
+  }
+
+  &__columns-delete {
+    display: flex;
+  }
+
+  &__columns-add {
+    @include button-secondary;
+    padding: 8px 0;
+  }
+
+  &__save {
+    @include button-primary-s;
+    padding: 8px 0;
+
+    &:hover {
+      @include button-primary-s-hover;
+    }
+  }
+}

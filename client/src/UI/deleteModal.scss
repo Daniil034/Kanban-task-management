@@ -1,0 +1,48 @@
+@import "./_variables.scss";
+
+.delete-modal {
+    @include container-rounded-white;
+    @include container-rounded-white-flex;
+
+    &__header {
+        @include heading-l;
+        color: $red;
+    }
+
+    &__body {
+        @include body-l;
+        color: $medium-grey;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 16px;
+        }
+    }
+
+    &__delete {
+        @include button-destructive;
+        padding: 8px 0;
+        flex-grow: 1;
+    }
+
+    &__delete:hover {
+        @include button-destructive-hover;
+    }
+
+    &__cancel {
+        @include button-secondary;
+        padding: 8px 0;
+        flex-grow: 1;
+    }
+
+    &__cancel:hover {
+        @include button-secondary-hover;
+    }
+}

@@ -1,0 +1,89 @@
+@import "./UI/_variables.scss";
+
+// ============================================= common styles ===================================== //
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 16px;
+  height: 100%;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgb(212, 212, 212);
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #9e9d9d;
+    border-radius: 8px;
+  }
+
+  @include desktop {
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+  }
+}
+
+.noscroll {
+  overflow: hidden;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+input[type="text"],
+textarea {
+  @include body-l;
+  border: 1px solid $lines-light;
+  border-radius: 4px;
+  padding: 8px 16px;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  outline: 1px solid $main-purple;
+}
+
+input[type="text"]::placeholder {
+  opacity: 0.25;
+}
